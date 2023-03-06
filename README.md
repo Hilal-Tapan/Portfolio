@@ -1,6 +1,6 @@
 # Project 1 @cmda-minor-web 2022 - 2023
 
-## GitHub powered Portfolio
+## GitHub Powered Portfolio
 
 In een week bouwt iedere student aan de hand van een user story een eigen prototype. Technieken geleerd bij [CSS to the Rescue](https://github.com/cmda-minor-web/css-to-the-rescue-2021) en [Web App from Scratch](https://github.com/cmda-minor-web/web-app-from-scratch-2021) worden toegepast bij het bouwen van de de prototypes.
 
