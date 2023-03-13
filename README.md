@@ -8,6 +8,7 @@ In een week bouwt iedere student aan de hand van een user story een eigen protot
 ## Programma
 
 ### Kickoff
+d
 
 ## Opdrachtomschrijving
 
