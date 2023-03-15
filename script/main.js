@@ -1,25 +1,25 @@
+// Variablen
 const main = document.querySelector('main');
-// Variabelen om HTML-elementen te vinden
-
+const repoList = document.getElementById('repository-list');
 
 // Functie om elementen in de HTML te vinden
 const element = (element) => {
     return document.querySelector(element)
 }
 
+// Variabelen om HTML-elementen te vinden
 const theTitel = element('h2')
 const theDescription = element('p')
 
 // Zet de bijbehorende api gegevens in de HTML elementen
-const changeTitel = (data) => {
-    console.log(data)
-    const text = data
+const changeTitel = (repo) => {
+    console.log(repo)
+    const text = repo
     theTitel.innerHTML = text
 }
-
-const changeDescription = (data) => {
-    console.log(data)
-    const descrip = data
+const changeDescription = (repo) => {
+    console.log(repo)
+    const descrip = repo
     theDescription.innerHTML = descrip
 }
 
@@ -30,36 +30,40 @@ fetchData();
 function fetchData() {
     fetch(url)
         .then((response) => response.json())
-        .then((data) => {
+        .then((repos) => {
+            repos.forEach(repo => {
+            console.log(repo);
+            console.log(repo.full_name)
+            console.log(repo.description)
+            console.log(repo.html_url)
+            console.log(repo.homepage)
 
-            console.log(data);
+            // data veranderen
+            changeTitel(repo.full_name)
+            changeDescription(repo.description)
 
-            data.forEach((repo) => {
-                console.log(repo.full_name);
-                console.log(repo.description);
-                // console.log(repo.html_url);
-                // console.log(repo.homepage);
+            const repoName = repo.name
+            const repoDescription = repo.description
+            const repoLink = repo.html_url
+            const repoLiveSite = repo.homepage
 
-                // data veranderen
-                changeTitel(repo.full_name);
-                changeDescription(repo.description);
-
-
-                // // Create a new HTML element for the repository description
-                // description.innerHTML = repo.description;
-
-                // // Append the description element to the main element
-                // main.appendChild(description);
-
-                // // Add the full_name data as innerHTML to the titel variable
-                // const name = document.createElement('p');
-                // name.innerHTML = repo.full_name;
-                // titel.appendChild(name);
-            });
-
-            if (data.error) {
-                handleFetchError(data.error);
-                return;
-            }
+            let repoElement = displayRepoData(repoName, repoDescription, repoLink, repoLiveSite)
+            repoList.insertAdjacentHTML('beforeend', repoElement)
         });
+
+    if (repo.error) {
+        handleFetchError(repo.error)
+        return;
+    }
+})}
+
+function displayRepoData(repoName, repoDescription, repoLink, repoLiveSite) {
+    return `
+                 <article>
+                    <h1>${repoName}</h1>
+                    <p>${repoDescription}</p>  
+                    <a href='${repoLink}'>Repository</a>  
+                    <a href='${repoLiveSite}'>Live Site</a>  
+                 </article>
+                 `;
 }

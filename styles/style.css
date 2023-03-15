@@ -1,0 +1,23 @@
+body{
+    background-color: lightpink;
+}
+
+main > h2:nth-of-type(1) {
+    display: none;
+}
+
+main > p:nth-of-type(1){ 
+    display: none;
+}
+
+section {
+    height: 100vw;
+    overflow: scroll
+}
+
+section article{
+    background-color: white;
+    border: solid black .1em;
+    padding: 1em;
+    margin-bottom: .5em;
+}
