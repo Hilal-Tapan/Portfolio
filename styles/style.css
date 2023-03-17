@@ -1,6 +1,27 @@
 body{
     background-color: lightpink;
+    padding: 1em;
+    border: black solid .2em;
 }
+
+body:has(:checked){
+    background-color: lightsalmon;
+}
+
+label {
+    color: green;
+
+}
+label input{
+    position:absolute;
+    right: 2em;
+    box-shadow: 3px 3px 5px grey;
+}
+
+ h1 {
+     color: green;
+     font-family: arial;
+ }
 
 main > h2:nth-of-type(1) {
     display: none;
@@ -10,14 +31,53 @@ main > p:nth-of-type(1){
     display: none;
 }
 
-section {
-    height: 100vw;
+
+
+section:nth-of-type(1) {
+    height: 30%;
+}
+section:nth-of-type(1) h2 {
+ margin: 0 0 .5em 0;
+}
+
+section:nth-of-type(1) p {
+    font-family: arial;
+    line-height: 1.5em;
+    margin: .1em;
+
+}
+
+section:nth-of-type(2) {
+    height: 140vw;
     overflow: scroll
+}
+
+section:nth-of-type(2) h2 {
+    letter-spacing: 1.1em;
+    text-transform: uppercase;
+    font-family: arial;
 }
 
 section article{
     background-color: white;
-    border: solid black .1em;
+    border: solid black .3em;
     padding: 1em;
-    margin-bottom: .5em;
+    margin-bottom: .7em;
+}
+
+article h1 {
+    text-transform: uppercase;
+    font-family: arial;
+}
+
+article a {
+    text-decoration: none;
+    color: white;
+    background-color: pink;
+    font-size: 1.5em;
+    /* margin-right: 2em; */
+    padding: 0em .5em;
+    border: green solid .1em;
+    font-family: arial;
+
 }
